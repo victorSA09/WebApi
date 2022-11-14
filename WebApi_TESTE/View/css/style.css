@@ -1,0 +1,186 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.5;
+    color: rgb(14, 12, 12);
+    font-size: 100%;
+}
+
+/*.logo {
+    width: 100px;
+    float: left;
+}*/
+.topo {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: stretch;
+    align-content: normal;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+nav {
+    width: 50%;
+    float: center;
+}
+
+nav ul {
+    float: center;
+}
+
+nav li {
+    font-size: 12px;
+    margin-left: 20px;
+    margin-top: 10px;
+    display: inline-block;
+    font-size: 16px;
+    color: #86343f;
+}
+
+nav li a {
+    color: rgb(75, 20, 20);
+}
+
+.bara {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+    background-color: #460812;
+    height: 90px;
+}
+
+.menu {
+    text-decoration: none;
+    font-size: 16px;
+    color: #f8f5f5;
+
+}
+
+a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #691c2a;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/*///////////////////////////////////////*/
+/*css form um*/
+.form {
+    box-shadow: 0 0 1px 0;
+    position: relative;
+    margin: 50px auto;
+    max-width: 320px;
+    padding: 30px;
+    text-align: center;
+    z-index: 1;
+}
+
+.form button,
+input {
+    border: 0;
+    font-size: 14px;
+    outline: 0;
+    padding: 20px;
+    width: 100%;
+}
+
+.form button {
+    background: rgb(75, 20, 20);
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.form button:active {
+    background: #b42834;
+}
+
+.form input {
+    background: #e2e2e2e2;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+/*******************************************/
+
+.formlivro {
+    box-shadow: 0 0 1px 0;
+    position: relative;
+    margin: 50px auto;
+    max-width: 320px;
+    padding: 30px;
+    text-align: center;
+    z-index: 1;
+}
+
+.formlivro button,
+input {
+    border: 0;
+    font-size: 14px;
+    outline: 0;
+    padding: 20px;
+    width: 100%;
+}
+
+.formlivro button {
+    background: rgb(75, 20, 20);
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.formlivro button:active {
+    background: #b42834;
+}
+
+.formlivro input {
+    background: #e2e2e2e2;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+/************************************************/
+/*terceiro form emprestimo*/
+
+.formemprestimo {
+    box-shadow: 0 0 1px 0;
+    position: relative;
+    margin: 50px auto;
+    max-width: 320px;
+    padding: 30px;
+    text-align: center;
+    z-index: 1;
+}
+
+.formemprestimo button,
+input {
+    border: 0;
+    font-size: 14px;
+    outline: 0;
+    padding: 20px;
+    width: 100%;
+}
+
+.formemprestimo button {
+    background: rgb(75, 20, 20);
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.formemprestimo button:active {
+    background: #b42834;
+}
+
+.formemprestimo input {
+    background: #e2e2e2e2;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar Biblioteca</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- <script src="index.html"></script> -->
+</head>
+
+
+<body>
+    <div class="formlivro">
+        <button onclick="listar()">Listar</button>
+       <select id="lista-livros">
+            <option id=""></option>
+       </select>
+
+       <select id="lista-leitores">
+            <option id=""></option>
+       </select>
+
+       <select id="estado">
+        <option value="true">Emprestar</option>
+        <option value="false">Devolver</option>
+    </select>
+    <div>
+        <button onclick="cadastrarEmprestimo()">Enviar</button>
+    </div>
+        <p>Ir para <a href="index.html">Cadastro de Livros</a></p>
+    </div>
+
+    
+
+</body>
+
+</html>
+
+<script>
+    var url = 'http://localhost:3000/'
+    function listar() {
+        //da um GET no endpoint "usuarios"
+        fetch(url + 'api/Livro')
+            .then(response => response.json())
+            .then((Livros) => {
+                //pega div que vai conter a lista de usuarios
+                let listarLivros = document.getElementById('lista-livros')
+
+                //limpa div
+                while (listarLivros.firstChild) {
+                    listarLivros.removeChild(listarLivros.firstChild)
+                }
+
+                //preenche com usuarios recebidos do GET ////AQUI Dani
+                for (let livro of Livros) {
+                    //cria div para as informacoes de um usuario
+                    let optLivro = document.createElement('option')
+                    optLivro.innerHTML = livro.nome
+                    optLivro.value = livro.id
+                    listarLivros.appendChild(optLivro)
+                }
+            })
+            ////////////////////
+            fetch(url + 'api/Leitor')
+            .then(response => response.json())
+            .then((Leitores) => {
+                //pega div que vai conter a lista de usuarios
+                let listaLeitores = document.getElementById('lista-leitores')
+
+                //limpa div
+                while (listaLeitores.firstChild) {
+                    listaLeitores.removeChild(listaLeitores.firstChild)
+                }
+
+                for (let leitor of Leitores) {
+                    //cria div para as informacoes de um usuario
+                    let optLeitor = document.createElement('option')
+                    optLeitor.innerHTML = leitor.nome
+                    optLeitor.value = leitor.id
+                    listaLeitores.appendChild(optLeitor)
+                }
+
+                
+            })
+
+            
+
+        
+    }
+
+    function cadastrarEmprestimo() {
+        
+        
+
+
+        let body =
+        {
+            'id_leitor': document.getElementById('lista-leitores').value,
+            'id_livros': document.getElementById('lista-livros').value,
+            
+        }
+
+        fetch(url + "api/Emprestimo",
+            {
+                'method': 'POST',
+                'redirect': 'follow',
+                'headers':
+                {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                'body': JSON.stringify(body)
+            })
+            //checa se requisicao deu certo
+            .then((response) => {
+                if (response.ok) {
+                    return response.text()
+                }
+                else {
+                    return response.text().then((text) => {
+                        throw new Error(text)
+                    })
+                }
+            })
+            //trata resposta
+            .then((output) => {
+                console.log(output)
+                alert('Cadastro realizado com sucesso!')
+            })
+            //trata erro
+            .catch((error) => {
+                console.log(error)
+                alert('Não foi possível realizar o cadastro.')
+            })
+
+
+    }
+                
+    
+
+    
+    
+</script>
